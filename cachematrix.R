@@ -5,9 +5,9 @@
 
 
 makeCacheMatrix <- function(x = matrix()) {
-  m <- NULL
+  m <- NULL#m is just an empty matrix/value at this stage.
   set <- function(y) {
-    x <<- y
+    x <<- y#Use of the global assignment operator.
     m <<- NULL
   }
   get <- function() x
@@ -15,9 +15,9 @@ makeCacheMatrix <- function(x = matrix()) {
   getinv <- function() m
   list(set = set, get = get,
        setinv = setinv,
-       getinv = getinv)
+       getinv = getinv)#The output of this function is really a list of functions.
 }
-    
+
 #This function computes the inverse of the matrix created by the above function, but first checks if that inverse has already been calculated.
 #If so, then the inverse is retrieved from cache and the calculation is skipped. This helps to avoid unnecessary computation. 
 #If the inverse has not yet been calculated, then the function calculates it and sets this value using the "setinv" function.
@@ -25,11 +25,11 @@ makeCacheMatrix <- function(x = matrix()) {
 cacheSolve <- function(x, ...) {
   m <- x$getinv()
   if(!is.null(m)) {
-    message("getting cached data")
+    message("getting cached data")#Function is checking to see if inverse has already been calculated.
     return(m)
   }
   data <- x$get()
-  m <- solve(data, ...)
-  x$setinv(m)
+  m <- solve(data, ...)#If inverse not calculated already, then function computes it with "solve()".
+  x$setinv(m)#Using "setinv()", the function saves the calculated inverse to cache.
   m
 }
