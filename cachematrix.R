@@ -1,4 +1,4 @@
-#This program takes a matrix and saves it, and its inverse, to the cache.
+#This program takes a matrix and saves it, and its inverse, to the cache. We assume all matrices to be used are invertible.
 
 
 #This function creates a list of functions which allow a matrix to be set and retrieved, and allow the same for the inverse of the matrix. 
