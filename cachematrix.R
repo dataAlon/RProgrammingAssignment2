@@ -1,7 +1,7 @@
 #This program takes a matrix and saves it, and its inverse, to the cache. We assume all matrices to be used are invertible.
 
 
-#This function creates a list of functions which allow a matrix to be set and retrieved, and allow the same for the inverse of the matrix. 
+#makeCacheMatrix creates a list of functions which allow a matrix to be set and retrieved, and allow the same for the inverse of the matrix. 
 
 
 makeCacheMatrix <- function(x = matrix()) {
@@ -18,7 +18,7 @@ makeCacheMatrix <- function(x = matrix()) {
        getinv = getinv)#The output of this function is really a list of functions.
 }
 
-#This function computes the inverse of the matrix created by the above function, but first checks if that inverse has already been calculated.
+#cacheSolve computes the inverse of the matrix created by the makeCacheMatrix function, but first checks if that inverse has already been calculated.
 #If so, then the inverse is retrieved from cache and the calculation is skipped. This helps to avoid unnecessary computation. 
 #If the inverse has not yet been calculated, then the function calculates it and sets this value using the "setinv" function.
 
